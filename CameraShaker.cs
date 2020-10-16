@@ -14,24 +14,24 @@ public class CameraShaker : MonoBehaviour
 	Vector3 originalPos;
 	
 	void Awake()
-  {
+  	{
 		if (camTransform == null)
-    {
+    		{
 			camTransform = transform;
 		}
 	}
 
 	public static void ShakeOnce(float length, float strength)
-  {
+  	{
 		shakeDuration = length;
 		shakeAmount = strength;
 	}
 
 	void Update()
-  {
+  	{
 		
 		if (shakeDuration > 0)
-    {
+    		{
 			Vector3 newPos = originalPos + Random.insideUnitSphere * shakeAmount;
 
 			camTransform.localPosition = Vector3.SmoothDamp(camTransform.localPosition, newPos, ref vel2, 0.05f);
